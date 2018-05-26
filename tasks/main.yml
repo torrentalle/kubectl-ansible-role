@@ -6,7 +6,7 @@
   - name: search latest kubectl relase
     uri:
       url: '{{ kubectl_latest_info_url }}'
-      return_content: yes
+      return_content: true
     register: _kubectl_release_info
   - name: select latest kubectl {{ _kubectl_release_info.content }}
     set_fact:
@@ -16,11 +16,11 @@
 - name: get SHA1 sum of kubectl {{ kubectl_release }}
   uri:
     url: '{{ kubectl_sha1_url }}'
-    return_content: yes
+    return_content: true
   register: _kubectl_release_sha1
 
 - name: install kubectl {{ kubectl_release }}
-  become: yes
+  become: true
   get_url:
     checksum: 'sha1:{{ _kubectl_release_sha1.content }}'
     url: '{{ kubectl_download_url }}'
