@@ -1,0 +1,8 @@
+# Molecule managed
+
+---
+command:
+  '/usr/local/bin/kubectl version --client':
+    exit-status: 0
+    stdout:
+      - v1.10.1

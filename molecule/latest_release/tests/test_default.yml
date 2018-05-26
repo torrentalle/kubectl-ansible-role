@@ -1,0 +1,8 @@
+# Molecule managed
+
+---
+command:
+  '/usr/local/bin/kubectl version --client | grep $(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)':
+    exit-status: 0
+    stdout:
+      - Client Version

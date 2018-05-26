@@ -1,0 +1,8 @@
+# Molecule managed
+---
+file:
+  /usr/local/bin/kubectl:
+    exists: true
+    mode: "0755"
+    owner: root
+    group: root

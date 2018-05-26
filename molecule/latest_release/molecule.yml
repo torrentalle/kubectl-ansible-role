@@ -10,10 +10,14 @@ platforms:
     image: centos:7
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      all:
+        kubectl_release: latest
   lint:
     name: ansible-lint
 scenario:
-  name: default
+  name: latest_release
 verifier:
   name: goss
   lint:
