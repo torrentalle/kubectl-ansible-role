@@ -1,2 +1,6 @@
 ---
 # defaults file for kubectl
+
+# By default calls github to get latest release
+kubectl_release: latest
+kubectl_install_path: /usr/local/bin

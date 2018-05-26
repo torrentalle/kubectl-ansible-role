@@ -1,2 +1,6 @@
 ---
 # vars file for kubectl
+
+kubectl_latest_info_url: https://storage.googleapis.com/kubernetes-release/release/stable.txt
+kubectl_download_url: "https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_release }}/bin/{{ ansible_system | lower }}/amd64/kubectl"
+kubectl_sha1_url: "{{ kubectl_download_url }}.sha1"

@@ -1,2 +1,28 @@
 ---
 # tasks file for kubectl
+
+- name: search latest kubectl relase
+  block:
+  - name: search latest kubectl relase
+    uri:
+      url: '{{ kubectl_latest_info_url }}'
+      return_content: yes
+    register: _kubectl_release_info
+  - name: select latest kubectl {{ _kubectl_release_info.content }}
+    set_fact:
+      kubectl_release: "{{ _kubectl_release_info.content | replace('\n', '') }}"
+  when: kubectl_release == 'latest'
+
+- name: get SHA1 sum of kubectl {{ kubectl_release }}
+  uri:
+    url: '{{ kubectl_sha1_url }}'
+    return_content: yes
+  register: _kubectl_release_sha1
+
+- name: install kubectl {{ kubectl_release }}
+  become: yes
+  get_url:
+    checksum: 'sha1:{{ _kubectl_release_sha1.content }}'
+    url: '{{ kubectl_download_url }}'
+    dest: '{{ kubectl_install_path }}/kubectl'
+    mode: 0755
