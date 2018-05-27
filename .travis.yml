@@ -5,9 +5,9 @@ sudo: required
 language: python
 services:
   - docker
-before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
+#before_install:
+#  - sudo apt-get -qq update
+#  - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
 git:
   dir: kubectl
 install:
@@ -17,9 +17,12 @@ install:
   - find .
   - pip install tox-travis
 env:
-  - TOXENV=py27-ansible22
-  - TOXENV=py27-ansible23
-  - TOXENV=py27-ansible24
+  global:
+    TRAVIS_REPO_SLUG=torrentalle/kubectl
+  matrix:
+#  - TOXENV=py27-ansible22
+#  - TOXENV=py27-ansible23
+#  - TOXENV=py27-ansible24
   - TOXENV=py27-ansible25
 script:
   - tox
