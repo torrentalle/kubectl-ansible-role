@@ -13,12 +13,9 @@ git:
 install:
   - pwd
   - env
-  - ls -la
-  - find .
+  - ln -s ../../${TRAVIS_REPO_SLUG} ../kubectl
   - pip install tox-travis
 env:
-  global:
-    TRAVIS_REPO_SLUG=torrentalle/kubectl
   matrix:
 #  - TOXENV=py27-ansible22
 #  - TOXENV=py27-ansible23
