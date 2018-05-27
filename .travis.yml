@@ -11,6 +11,10 @@ before_install:
 git:
   dir: kubectl
 install:
+  - pwd
+  - env
+  - ls -la
+  - find .
   - pip install tox-travis
 env:
   - TOXENV=py27-ansible22
