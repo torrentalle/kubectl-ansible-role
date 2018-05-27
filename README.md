@@ -54,7 +54,7 @@ Usage
 Testing
 ------------------
 
-![Ansible](https://img.shields.io/badge/ansible-2.2-green.svg)![Ansible](https://img.shields.io/badge/ansible-2.3-green.svg)![Ansible](https://img.shields.io/badge/ansible-2.4-green.svg)![Ansible](https://img.shields.io/badge/ansible-2.4-green.svg)![Ansible](https://img.shields.io/badge/ansible-2.5-green.svg)![Ansible](https://img.shields.io/badge/ansible-2.6.0a1-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.2-green.svg) ![Ansible](https://img.shields.io/badge/ansible-2.3-green.svg) ![Ansible](https://img.shields.io/badge/ansible-2.4-green.svg) ![Ansible](https://img.shields.io/badge/ansible-2.4-green.svg) ![Ansible](https://img.shields.io/badge/ansible-2.5-green.svg) ![Ansible](https://img.shields.io/badge/ansible-2.6.0a1-green.svg)
 
 [Tox](https://tox.readthedocs.io), [Docker](https://www.docker.com/), [Molecule](https://molecule.readthedocs.io) and [Goss](https://goss.rocks) are used tot test this role.
 You must install docker and tox before launch tests
