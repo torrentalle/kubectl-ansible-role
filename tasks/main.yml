@@ -1,8 +1,7 @@
 ---
 # tasks file for kubectl
 
-- name: search latest kubectl relase
-  block:
+- block:
   - name: search latest kubectl relase
     uri:
       url: '{{ kubectl_latest_info_url }}'
