@@ -1,7 +1,7 @@
 kubectl-ansible-role
+=========
 [![Build Status](https://travis-ci.org/torrentalle/kubectl-ansible-role.svg?branch=master)](https://travis-ci.org/torrentalle/kubectl-ansible-role)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-torrentalle.kubectl-blue.svg)](https://galaxy.ansible.com/torrentalle/kubectl-ansible-role)
-=========
 
 This role installs [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) binary
 
