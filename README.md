@@ -1,38 +1,50 @@
-Role Name
+kubectl-ansible-role
 =========
 
-A brief description of the role goes here.
+This role installs [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) binary
 
-Requirements
-------------
+Installation
+--------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Create or add to your roles dependency file (e.g requirements.yml):
+
+```yml
+- src: torrentalle.kubectl
+```
+
+Install the role with ansible-galaxy command:
+
+```sh
+ansible-galaxy install -p roles -r requirements.yml -f
+```
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+ * **kubectl_release**: Define *kubectl* release to install. Default `latest`
+ * **kubectl_install_path**: Where to install *kubectl* binary. Default `/usr/local/bin`
 
-Dependencies
-------------
+You can change the installation sources modifying following variables.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+ * **kubectl_latest_info_url**: https://storage.googleapis.com/kubernetes-release/release/stable.txt
+ * **kubectl_download_url**: "https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_release }}/bin/{{ ansible_system | lower }}/amd64/kubectl"
+ * **kubectl_sha1_url**: "{{ kubectl_download_url }}.sha1"
 
-Example Playbook
+
+Usage
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+```
+    - hosts: bastion
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: kubectl }
+```
 
 License
 -------
 
 BSD
 
-Author Information
+Author
 ------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+ * **[torrentalle](https://github.com/torrentalle)**
