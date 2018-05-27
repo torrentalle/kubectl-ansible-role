@@ -15,6 +15,7 @@ install:
   - env
   - ln -s ../../${TRAVIS_REPO_SLUG} ../kubectl
   - pip install tox-travis
+  - find /home/travis/build/torrentalle/kubectl-ansible-role/.tox/
 env:
   matrix:
 #  - TOXENV=py27-ansible22
