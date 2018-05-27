@@ -5,15 +5,16 @@ sudo: required
 language: python
 services:
   - docker
-before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
-install:
-  - pip install tox-travis
 env:
-  - TOXENV=py27-ansible22
-  - TOXENV=py27-ansible23
-  - TOXENV=py27-ansible24
-  - TOXENV=py27-ansible25
+  global:
+    - ROLE=kubectl
+  matrix:
+    - TOXENV=py27-ansible22
+    - TOXENV=py27-ansible23
+    - TOXENV=py27-ansible24
+    - TOXENV=py27-ansible25
+install:
+  - ln -s  $(basename $PWD) ../${ROLE}
+  - pip install tox-travis
 script:
   - tox
