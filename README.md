@@ -25,6 +25,17 @@ Install the role with ansible-galaxy command:
 ansible-galaxy install -p roles -r requirements.yml -f
 ```
 
+
+Usage
+----------------
+
+```yml
+    - hosts: bastion
+      roles:
+         - { role: kubectl }
+```
+
+
 Role Variables
 --------------
 Available variables are listed below, along with default values (see `defaults/main.yml`):
@@ -42,14 +53,6 @@ kubectl_download_url: "https://storage.googleapis.com/kubernetes-release/release
 kubectl_sha1_url: "{{ kubectl_download_url }}.sha1"
 ```
 
-Usage
-----------------
-
-```yml
-    - hosts: bastion
-      roles:
-         - { role: kubectl }
-```
 
 Testing
 ------------------
