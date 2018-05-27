@@ -12,7 +12,10 @@ env:
     - TOXENV=py27-ansible22
     - TOXENV=py27-ansible23
     - TOXENV=py27-ansible24
-    - TOXENV=py27-ansible25
+matrix:
+  allow_failures:
+    - env: TOXENV=py27-ansible25
+
 install:
   - ln -s  $(basename $PWD) ../${ROLE}
   - pip install tox-travis
